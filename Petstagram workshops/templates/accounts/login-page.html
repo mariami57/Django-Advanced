@@ -1,5 +1,5 @@
 {% extends 'common/base.html' %}
-
+{%  load placeholder_filter %}
 {% block content %}
 <!-- Starts Main Section -->
 <main>
@@ -10,16 +10,17 @@
             <h1>Petstagram</h1>
 
             <!-- Start Login Form-->
-            <form action="#">
-                <p>
-                    <label for="id_username">Username:</label>
-                    <input type="text" placeholder="Username">
-                </p>
-                <p>
-                    <label for="id_password">Password:</label>
-                    <input type="password" placeholder="Password">
-                </p>
+            <form method="post">
+                {% csrf_token %}
+               <p>
+                   {{ form.username|placeholder:"Email" }}
+                   {{ form.username.errors }}
+               </p>
 
+                <p>
+                    {{ form.password|placeholder:"Password" }}
+                    {{ form.password.errors }}
+                </p>
                 <!-- Login Button-->
                 <button type="submit">Log in</button>
             </form>
@@ -29,7 +30,7 @@
         <div class="second-option">
 
             <!-- Link to Register Page-->
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
         </div>
     </div>
     <!-- End Login Section-->
