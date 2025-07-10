@@ -1,0 +1,59 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Starts Main Section -->
+<main>
+
+<div class="pet-profile">
+<!-- Start Pet Personal Data Section -->
+<div class="profile">
+    <div class="profile-data">
+        <div class="profile_img">
+            <div class="image">
+                <!-- Pet URL Image -->
+                <img src="{{ pet.personal_photo }}"
+                     alt="img8">
+            </div>
+        </div>
+        <div class="personal">
+            <div class="edit">
+                <!-- Pet Name -->
+                <p>{{ pet.name }}</p>
+                <!-- Pet Edit Button -->
+                <a href="{% url 'edit_pet' username=request.user.username|default:"anonymous" pet_slug=pet.slug %}">
+                    <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">
+                </a>
+                <!-- Pet Delete Button -->
+                <a href="{% url 'delete_pet' username=request.user.username|default:"anonymous" pet_slug=pet.slug %}">
+                    <img class="bin-img" src="static {% static 'images/icon-remove-22.jpg'%}" alt="bin button">
+                </a>
+            </div>
+            <div class="data">
+                <!-- Pet Total Photos -->
+                <span>{{ pet.photo_set.count }}</span>
+                <p>photos</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Pet Personal Data Section -->
+
+
+
+<div class="pet-posts">
+
+            <!-- IF Photos End Pet Photos Post Section -->
+            {% for photo in all_photos %}
+                {% include 'common/pet-post.html' %}
+            {% empty %}
+                <!-- IF NOT Photos Show No Post Image -->
+                <img class="no-posts" src="{% static 'images/no_posts.png' %}" alt="no posts image">
+            {% endfor %}
+
+        </div>
+    </div>
+</main>
+<!-- End Main Section -->
+
+{% endblock %}
