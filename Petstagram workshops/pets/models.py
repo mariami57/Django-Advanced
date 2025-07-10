@@ -1,13 +1,15 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.text import slugify
 
-
+UserModel = get_user_model()
 # Create your models here.
 class Pet(models.Model):
     name = models.CharField(max_length=30)
     personal_photo = models.URLField()
     date_of_birth = models.DateTimeField(blank=True, null=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
 
 
     def save(self, *args, **kwargs):

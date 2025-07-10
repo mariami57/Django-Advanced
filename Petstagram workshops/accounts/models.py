@@ -19,3 +19,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=30, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     profile_picture = models.URLField(blank=True, null=True)
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'

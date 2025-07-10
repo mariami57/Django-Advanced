@@ -13,15 +13,15 @@
                     <div class="profilepic">
                         <div class="profile_img">
                             <div class="image">
-                                <img src="/static/images/person.png" alt="img8">
+                               {% include 'common/profile-image.html' with profile_picture=photo.user.profile.profile_picture %}
                             </div>
                         </div>
                     </div>
                 </a>
                 <h3>
-                    <a href="profile details">
+                    <a href="{% url 'profile-details' photo.user.pk %}">
                         <!-- if user has first name and last name -->
-                        Diyan Kalaydzhiev
+                        {{ photo.user.profile.full_name|default:'anonymous' }}
                         <!-- else -->
                         <!-- user username -->
                     </a>
@@ -65,7 +65,7 @@
 
             <!-- tagged pets -->
             {% for pet in photo.tagged_pets.all %}
-                <a href="{%  url 'details_pet' username=user.username|default:"anonymous" pet_slug=pet.slug %}">
+                <a href="{%  url 'details_pet' pet.user.full_name|default:'anonymous' pet.slug %}">
                     <p class="message">
                         <b>{{ pet.name }}</b>
                     </p>
@@ -99,7 +99,7 @@
 
                     <!-- IF the viewer is the creator of the photo -->
             <div class="edit-delete-btns">
-                {% if editable %}
+                {% if editable  and request.user.pk == photo.user.pk %}
                 <!-- Link to Edit Pet Photo Page -->
                     <a href="{% url  'edit_photo' pk=photo.pk %}">
                         <img class="edit-img" src="{% static '/images/edit-pen-icon-6.jpg' %}"
