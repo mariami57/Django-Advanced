@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 
 
 from accounts.forms import AppUserCreationForm, AppUserChangeForm
+from accounts.models import Profile
 
 UserModel = get_user_model()
 # Register your models here.
@@ -41,3 +42,7 @@ class AppUserAdmin(UserAdmin):
 
     add_form = AppUserCreationForm
     form = AppUserChangeForm
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    pass
