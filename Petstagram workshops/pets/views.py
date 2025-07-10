@@ -1,14 +1,16 @@
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from common.forms import CommentForm
+from common.mixins import UserIsOwnerMixin
 from pets.forms import PetCreateForm, PetEditForm, PetDeleteForm
 from pets.models import Pet
 
 
 # Create your views here.
-class PetAddView(CreateView):
+class PetAddView(LoginRequiredMixin, CreateView):
     model = Pet
     form_class = PetCreateForm
     success_url = reverse_lazy('profile-details', kwargs={'pk'  :1})
@@ -20,12 +22,14 @@ class PetAddView(CreateView):
         self.object.save()
         return super().form_valid(form)
 
-class PetDeleteView(DeleteView):
+class PetDeleteView(LoginRequiredMixin, UserIsOwnerMixin, DeleteView):
     model = Pet
     template_name = 'pets/pet-delete-page.html'
     form_class = PetDeleteForm
     success_url = reverse_lazy('profile-details', kwargs={'pk' :1})
     slug_url_kwarg = 'pet_slug'
+
+
 
     def get_initial(self):
         return self.get_object().__dict__
@@ -35,11 +39,13 @@ class PetDeleteView(DeleteView):
         kwargs.update({'data': self.get_initial()})
         return kwargs
 
-class PetEditView(UpdateView):
+class PetEditView(LoginRequiredMixin, UserIsOwnerMixin, UpdateView):
     model = Pet
     form_class = PetEditForm
     template_name = "pets/pet-edit-page.html"
     slug_url_kwarg = 'pet_slug'
+
+
 
     def get_success_url(self):
         return reverse('details_pet',
