@@ -1,0 +1,54 @@
+{% extends 'common/base.html' %}
+{% load markdown_extras %}
+{% load recent_posts %}
+
+{% block content %}
+
+    {% include 'common/search_bar.html' %}
+    <div class="container">
+        {% for post in post_list %}
+            <div class="posts">
+                <a class="post-url" href="{% url 'details_post' post.pk  %}">
+                    <div class="post">
+                        <h2><b> {{ post.title }} </b>
+                            {% if perms.posts.approve_post  and not post.approved %}
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('approve-form').submit()">
+                                    <i class="ai-check"></i>
+                                </a>
+
+                                <form id="approve-form" style="display: none;" action="{% url 'approve_post' post.pk %}" method="post">
+                                    {% csrf_token %}
+                                </form>
+                            {% endif %}
+                        </h2>
+                        <p>{{ post.content|truncatewords:5|markdown }}</p>
+                        <div class="post-meta">
+                            <span>Post by {{ post.author|default:"Anonymous" }} on {{ post.created_at|date:"D d M Y" }}</span>
+                        </div>
+                    </div>
+                </a>
+
+
+        {% empty %}
+            <h1 class="no-posts">No posts</h1>
+        {% endfor %}
+        </div>
+
+        <div class="pagination">
+             <span class="step-links">
+                 {% if page_obj.has_previous %}
+                     <a href="?page=1&query={{ query }}">&laquo; first</a>
+                     <a href="?page={{ page_obj.previous_page_number }}&query={{ query }}">previous</a>
+                 {% endif %}
+                 <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                 </span>
+                 {% if page_obj.has_next %}
+                     <a href="?page={{ page_obj.next_page_number }}&query={{ query }}">next</a>
+                     <a href="?page={{ page_obj.paginator.num_pages }}&query={{ query }}">last &raquo;</a>
+                 {% endif %}
+             </span>
+        </div>
+    </div>
+
+{% endblock %}
