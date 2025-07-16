@@ -24,7 +24,7 @@ from books_api.serializers import BookSerializer
 
 class ListBookView(generics.ListAPIView):
     serializer_class = BookSerializer
-    queryset = Book.objects.all()
+    queryset = Book.objects.prefetch_related('authors')
 
 class BookViewSet(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BookSerializer
@@ -59,11 +59,11 @@ class BookViewSet(generics.RetrieveUpdateDestroyAPIView):
     #     return Response(status=status.HTTP_200_OK)
 
 
-#
-# @api_view(['POST'])
-# def create_book(request):
-#     serializer = BookSerializer(data=request.data)
-#     serializer.is_valid(raise_exception=True)
-#     serializer.save()
-#     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['POST'])
+def create_book(request):
+    serializer = BookSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 

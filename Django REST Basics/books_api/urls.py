@@ -6,6 +6,7 @@ from books_api.views import ListBookView
 urlpatterns = [
     path('books/', ListBookView.as_view(), name='list-books'),
     path('book/', include([
-    path('<int:pk>/', views.BookViewSet.as_view(), name='book'),
+        path('',views.create_book, name='create-book'),
+        path('<int:pk>/', views.BookViewSet.as_view(), name='book'),
     ]))
 ]
