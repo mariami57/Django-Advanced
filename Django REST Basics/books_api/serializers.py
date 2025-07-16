@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from books_api.models import Book, Author
+from books_api.models import Book, Author, Publisher
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -7,6 +7,10 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = '__all__'
         model = Author
 
+class BookSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Book
 
 class BookSerializer(serializers.ModelSerializer):
     authors = AuthorSerializer(many=True)
@@ -31,4 +35,15 @@ class BookSerializer(serializers.ModelSerializer):
         book.authors.set(all_authors)
 
         return book
+
+class PublisherSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Publisher
+
+
+class PublisherHyperlinkSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        fields = '__all__'
+        model = Publisher
 

@@ -1,11 +1,12 @@
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
-from books_api.models import Book
+from books_api.models import Book, Publisher
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status, views, generics
-from books_api.serializers import BookSerializer
+from rest_framework import status, views, generics, viewsets
+from books_api.serializers import BookSerializer, BookSimpleSerializer, PublisherSerializer, \
+    PublisherHyperlinkSerializer
 
 
 # Create your views here.
@@ -27,7 +28,7 @@ class ListBookView(generics.ListAPIView):
     queryset = Book.objects.prefetch_related('authors')
 
 class BookViewSet(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = BookSerializer
+    serializer_class = BookSimpleSerializer
     queryset = Book.objects.all()
 
 
@@ -67,3 +68,10 @@ def create_book(request):
     serializer.save()
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+class PublisherViewSet(viewsets.ModelViewSet):
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
+
+class PublisherHyperLinkView(generics.ListAPIView):
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherHyperlinkSerializer
