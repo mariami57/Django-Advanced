@@ -1,10 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from rest_framework.authentication import TokenAuthentication
 
 from books_api.models import Book, Publisher
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, views, generics, viewsets
+from rest_framework.permissions import IsAuthenticated
+
+from books_api.permissions import IsAuthor
 from books_api.serializers import BookSerializer, BookSimpleSerializer, PublisherSerializer, \
     PublisherHyperlinkSerializer
 
@@ -30,6 +35,8 @@ class ListBookView(generics.ListAPIView):
 class BookViewSet(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BookSimpleSerializer
     queryset = Book.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthor]
 
 
     # def get_object(self, pk):
