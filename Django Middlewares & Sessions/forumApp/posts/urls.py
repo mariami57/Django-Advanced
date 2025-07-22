@@ -4,7 +4,7 @@ from django.urls.conf import path
 
 from forumApp import settings
 from posts import views
-
+from posts.views import notify_all_users
 
 urlpatterns = [
     path('', views.counter_view, name='index'),
@@ -15,6 +15,7 @@ urlpatterns = [
     path('details-post/<int:pk>/', views.PostDetails.as_view(), name='details_post'),
     path('delete-post/<int:pk>/', views.DeletePost.as_view(), name='delete_post'),
     path('redirect/', views.MyRedirectView.as_view(), name='redirect'),
+    path('notify/', notify_all_users, name='notify'),
 ]
 
 if settings.DEBUG:

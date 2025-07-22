@@ -16,13 +16,11 @@ class PostBaseForm(forms.ModelForm):
     content2 = forms.CharField(max_length=10,
         validators=[BadWordValidator(
             bad_words=['bad_word1', 'bad_word2'])],
-        error_messages={'max_length':'Hey, that`s too much',
-                        },
     )
 
     class Meta:
         model = Post
-        exclude = ('approved',)
+        exclude = ('approved','author')
 
         widgets = {
             'language': forms.RadioSelect(
@@ -35,13 +33,6 @@ class PostBaseForm(forms.ModelForm):
             'title': "This is a help text",
         }
 
-    def clean_author(self):
-        author = self.cleaned_data.get('author')
-
-        if not author.isalpha():
-            raise ValidationError('Author name should contain only letters')
-
-        return author
 
     def clean(self):
         cleaned_data = super().clean()
@@ -55,7 +46,6 @@ class PostBaseForm(forms.ModelForm):
 
     def save(self, commit=True):
         post = super().save(commit=False)
-        post.author = post.author.capitalize()
 
         if commit:
             post.save()

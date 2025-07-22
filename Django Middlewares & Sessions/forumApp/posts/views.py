@@ -1,35 +1,30 @@
+import asyncio
 from datetime import datetime
 
-from django.contrib.auth.decorators import permission_required
+from asgiref.sync import sync_to_async
+from django.conf import settings
+from django.contrib.auth import get_user_model
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models.query_utils import Q
 from django.forms.models import modelform_factory
 from django.http.response import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import  redirect
 from django.urls.base import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic.base import View, TemplateView, RedirectView
+from django.views.generic.base import TemplateView, RedirectView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView, FormMixin
 from django.views.generic.list import ListView
 
 from posts.decorators import measure_execution_time
-from posts.forms import PostBaseForm, PostCreateForm, PostEditForm, PostDeleteForm, SearchForm, CommentForm, \
+from posts.forms import  PostCreateForm, PostEditForm, PostDeleteForm, SearchForm, \
     CommentFormSet
 
 from posts.models import Post
+from posts.tasks import _send_mail
 
-
-# Create your views here
-# class IndexView(View):
-#     def dispatch(self, request, *args, **kwargs):
-#         if request.user.is_authenticated:
-#             return super().dispatch(request, *args, **kwargs)
-#         else:
-#             return HttpResponse("403 Forbidden")
-#
-#     def get(self, request, *args, **kwargs):
-#         return render(request, "index.html")
+UserModel = get_user_model()
 
 
 def counter_view(request):
@@ -37,11 +32,6 @@ def counter_view(request):
     return HttpResponse(f"View count: {request.session['counter']}")
 
 class IndexView(TemplateView):
-    # template_name = 'index.html'
-    # extra_context = {
-    #     'current_time': datetime.now(),
-    # }
-
     def get_context_data(self, **kwargs):
         super().get_context_data(**kwargs)
         kwargs.update({
@@ -94,45 +84,16 @@ class Dashboard(ListView, PermissionRequiredMixin):
         return queryset
 
 
-
-# def dashboard(request):
-    # search_form = SearchForm(request.GET)
-    # posts = Post.objects.all()
-
-    # if request.method == "GET" and search_form.is_valid():
-    #     query = search_form.cleaned_data.get('query')
-    #     posts = posts.filter(Q(title__icontains=query) |
-    #                          Q(content__icontains=query) |
-    #                          Q(author__icontains=query))
-
-    # if request.method == "POST":
-    #     return redirect('index')
-    #
-    # context = {
-    #         "posts": posts,
-    #         # "search_form": search_form,
-    #     }
-    #
-    # return render(request, "posts/dashboard.html", context)
-
 class CreatePost(LoginRequiredMixin, CreateView):
     form_class = PostCreateForm
     success_url = reverse_lazy('dashboard')
     model = Post
     template_name = 'posts/add_post.html'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-
-# def add_post(request):
-#     form = PostCreateForm(request.POST or None, request.FILES or None
-#                           )
-#     if request.method == "POST" and form.is_valid():
-#         form.save()
-#         return redirect('dashboard')
-#
-#     context = {"form": form}
-#
-#     return render(request, "posts/add_post.html", context)
 
 class EditPost(UpdateView):
     model = Post
@@ -146,22 +107,6 @@ class EditPost(UpdateView):
         else:
             return modelform_factory(Post, fields=('content',),)
 
-# def edit_post(request, pk:int):
-#     post = Post.objects.get(pk=pk)
-#
-#     if request.user.is_superuser:
-#         PostEditForm = modelform_factory(Post, fields='__all__')
-#     else:
-#         PostEditForm = modelform_factory(Post, fields=('content',))
-#
-#     form = PostEditForm(request.POST or None, instance=post)
-#
-#     if request.method == "POST" and form.is_valid():
-#         form.save()
-#         return redirect('dashboard')
-#
-#     context = {"form": form}
-#     return render(request, "posts/edit_post.html", context)
 
 class PostDetails(DetailView, FormMixin):
     model = Post
@@ -194,27 +139,6 @@ class PostDetails(DetailView, FormMixin):
 
             return self.form_valid(comment_form_set)
 
-# def post_details(request, pk):
-#
-#     post = Post.objects.get(pk=pk)
-    # comment_form_set = CommentFormSet(request.POST or None)
-    #
-    # if request.method == "POST" and comment_form_set.is_valid():
-    #     for form in comment_form_set:
-    #         comment = form.save(commit=False)
-    #         comment.author = request.user.username
-    #         comment.post = post
-    #         comment.save()
-    #         return redirect('details_post', pk=post.pk)
-
-    #
-    # context = {
-    #     "post": post,
-    #     # "formset": comment_form_set,
-    # }
-    #
-    # return render(request, "posts/details_post.html", context)
-
 
 class DeletePost(DeleteView, FormView):
     model = Post
@@ -228,19 +152,6 @@ class DeletePost(DeleteView, FormView):
         post = self.model.objects.get(pk=pk)
         return post.__dict__
 
-# def delete_post(request, pk):
-#     post = Post.objects.get(pk=pk)
-#     form = PostDeleteForm(instance=post)
-#
-#     if request.method == "POST":
-#         post.delete()
-#         return redirect('dashboard')
-#
-#     context = {
-#         "form": form,
-#     }
-#
-#     return render(request, "posts/delete_post.html", context)
 
 class MyRedirectView(RedirectView):
     # url = 'http://localhost:8000/dashboard/'
@@ -248,3 +159,24 @@ class MyRedirectView(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         return reverse('dashboard') + "?query=Django"
+
+
+
+async def send_mail(*args):
+    await _send_mail(*args)
+
+async def notify_all_users(request):
+    all_users = await sync_to_async(UserModel.objects.all)()
+    users = await sync_to_async(list)(all_users)
+
+    email_tasks = [
+       send_mail(
+           'Maintenance',
+           'We are having a maintenance! We will be back shortly!',
+           settings.DEFAULT_FROM_EMAIL,
+           [user.email]
+
+       ) for user in users
+    ]
+
+    await asyncio.gather(*email_tasks)
