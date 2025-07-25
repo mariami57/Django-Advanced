@@ -13,10 +13,7 @@ from crispy_forms.helper import FormHelper
 
 
 class PostBaseForm(forms.ModelForm):
-    content2 = forms.CharField(max_length=10,
-        validators=[BadWordValidator(
-            bad_words=['bad_word1', 'bad_word2'])],
-    )
+
 
     class Meta:
         model = Post
@@ -29,6 +26,13 @@ class PostBaseForm(forms.ModelForm):
 
         }
 
+        error_messages = {
+            'title': {
+                'required': 'Please enter the title of your post',
+                'max_length': f'The title is too long.',
+            },
+        }
+
         help_texts = {
             'title': "This is a help text",
         }
@@ -39,13 +43,15 @@ class PostBaseForm(forms.ModelForm):
         title = cleaned_data.get('title')
         content = cleaned_data.get('content')
 
-        if title.lower() in content.lower():
-            raise ValidationError("The post title shouldn`t be included in the content!")
+        if title and content and title in content:
+            raise ValidationError('The post title cannot be in the content!')
 
         return cleaned_data
 
     def save(self, commit=True):
         post = super().save(commit=False)
+
+        post.title = post.title.capitalize()
 
         if commit:
             post.save()

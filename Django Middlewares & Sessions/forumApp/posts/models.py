@@ -9,7 +9,8 @@ from posts.validators import BadWordValidator
 UserModel = get_user_model()
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
+    TITLE_MAX_LENGTH = 200
+    title = models.CharField(max_length=TITLE_MAX_LENGTH)
     content = models.TextField(validators=[BadWordValidator(bad_words=['bad_word1', 'bad_word2'])])
     author = models.ForeignKey(to=UserModel, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
