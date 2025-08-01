@@ -34,46 +34,167 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.Django Middlewares &amp; Sessions.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/minni/Documents/GitHub/Django-Advanced/Django Middlewares &amp; Sessions&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.Django Middlewares & Sessions.executor": "Run",
+    "Django tests.Test: tests.accounts.test_user_model.TestUserModel.test__second_user_with_same_username__raise_integrity_error.executor": "Run",
+    "Django tests.Test: tests.accounts.test_user_model.TestUserModel.test__valid_str_method__returns_username.executor": "Run",
+    "Django tests.Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__form_is_valid__expect_success.executor": "Run",
+    "Django tests.Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__save_form__saves_the_title_with_capital_letter.executor": "Run",
+    "Django tests.Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_is_in_content__raises_value_error.executor": "Run",
+    "Django tests.Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_is_missing__expect_custom_error.executor": "Run",
+    "Django tests.Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_too_long__expect_custom_error.executor": "Run",
+    "Django tests.Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func.executor": "Run",
+    "Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.executor": "Run",
+    "Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success.executor": "Run",
+    "Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error.executor": "Run",
+    "Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects.executor": "Run",
+    "Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for test_user_model.TestUserModel.executor": "Run",
+    "Python tests.Python tests for test_user_model.TestUserModel.test__second_user_with_same_username__raise_interity_error.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/minni/Documents/GitHub/Django-Advanced/Django Middlewares & Sessions",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\minni\Documents\GitHub\Django-Advanced\Django Middlewares &amp; Sessions\forumApp\tests\accounts\models" />
       <recent name="C:\Users\minni\Documents\GitHub\Django-Advanced\Django Middlewares &amp; Sessions\forumApp\forumApp" />
       <recent name="C:\Users\minni\Documents\GitHub\Django-Advanced\Django Middlewares &amp; Sessions\forumApp\posts" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Django Middlewares &amp; Sessions" type="Python.DjangoServer" factoryName="Django server">
+  <component name="RunManager" selected="Django tests.Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func">
+    <configuration name="Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func" type="DjangoTestsConfigurationType" temporary="true">
       <module name="Django Middlewares &amp; Sessions" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test: tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError" type="DjangoTestsConfigurationType" temporary="true">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Django Middlewares &amp; Sessions" type="Python.DjangoServer" factoryName="Django server">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
         <env name="DJANGO_SETTINGS_MODULE" value="forumApp.settings" />
+        <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="SDK_NAME" value="Python 3.13" />
@@ -92,6 +213,39 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for tests.accounts.models.test_user_model.TestUserModel" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Django Middlewares &amp; Sessions" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/forumApp/tests/accounts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.accounts.models.test_user_model.TestUserModel&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django Server.Django Middlewares &amp; Sessions" />
+      <item itemvalue="Django tests.Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func" />
+      <item itemvalue="Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success" />
+      <item itemvalue="Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error" />
+      <item itemvalue="Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects" />
+      <item itemvalue="Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func" />
+        <item itemvalue="Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError" />
+        <item itemvalue="Django tests.Test: tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects" />
+        <item itemvalue="Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error" />
+        <item itemvalue="Django tests.Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -112,10 +266,27 @@
       <workItem from="1752306921037" duration="122000" />
       <workItem from="1753189451614" duration="12235000" />
       <workItem from="1753206310301" duration="18000" />
+      <workItem from="1753421035794" duration="21840000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_views_test_approve_post_TestApprovePostView_test__invalid_post__raises_DoesNotExistError.coverage" NAME="Test: tests.posts.views.test_approve_post.TestApprovePostView.test__invalid_post__raises_DoesNotExistError Coverage Results" MODIFIED="1753461326147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_accounts_test_user_model_TestUserModel_test__second_user_with_same_username__raise_integrity_error.coverage" NAME="Test: tests.accounts.test_user_model.TestUserModel.test__second_user_with_same_username__raise_integrity_error Coverage Results" MODIFIED="1753452746867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$.coverage" NAME=" Coverage Results" MODIFIED="1753452031277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/forumApp/tests/accounts" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_forms_test_post_base_form_TestPostBaseForm_test__title_too_long__expect_custom_error.coverage" NAME="Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_too_long__expect_custom_error Coverage Results" MODIFIED="1753456428351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_forms_test_post_base_form_TestPostBaseForm_test__form_is_valid__expect_success.coverage" NAME="Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__form_is_valid__expect_success Coverage Results" MODIFIED="1753455133536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_views_test_approve_post_TestApprovePostView_test__approve_valid_post__approves_the_post_and_redirects.coverage" NAME="Test: tests.posts.views.test_approve_post.TestApprovePostView.test__approve_valid_post__approves_the_post_and_redirects Coverage Results" MODIFIED="1753461056375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_accounts_test_user_model_TestUserModel_test__valid_str_method__returns_username.coverage" NAME="Test: tests.accounts.test_user_model.TestUserModel.test__valid_str_method__returns_username Coverage Results" MODIFIED="1753452384378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_validators_test_bad_language_validator_TestBadLanguageValidator.coverage" NAME="Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator Coverage Results" MODIFIED="1753458164338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_forms_test_post_base_form_TestPostBaseForm_test__title_is_missing__expect_custom_error.coverage" NAME="Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_is_missing__expect_custom_error Coverage Results" MODIFIED="1753455780704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_validators_test_bad_language_validator_TestBadLanguageValidator_test__validate_clean_message__expect_success.coverage" NAME="Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_clean_message__expect_success Coverage Results" MODIFIED="1753458191495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_forms_test_post_base_form_TestPostBaseForm_test__title_is_in_content__raises_value_error.coverage" NAME="Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__title_is_in_content__raises_value_error Coverage Results" MODIFIED="1753456707441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_forms_test_post_base_form_TestPostBaseForm_test__save_form__saves_the_title_with_capital_letter.coverage" NAME="Test: tests.posts.forms.test_post_base_form.TestPostBaseForm.test__save_form__saves_the_title_with_capital_letter Coverage Results" MODIFIED="1753456890184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_validators_test_bad_language_validator_TestBadLanguageValidator_test__validate_explicit_content_message__expect_validation_error.coverage" NAME="Test: tests.posts.validators.test_bad_language_validator.TestBadLanguageValidator.test__validate_explicit_content_message__expect_validation_error Coverage Results" MODIFIED="1753458758759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/Django_Middlewares___Sessions$Test__tests_posts_tasks_send_email_task_TestSendEmailTask_test__send_mail__calls_django_send_mail_func.coverage" NAME="Test: tests.posts.tasks.send_email_task.TestSendEmailTask.test__send_mail__calls_django_send_mail_func Coverage Results" MODIFIED="1753461915757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
